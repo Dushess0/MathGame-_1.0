@@ -108,7 +108,7 @@ def split(data,page,by=10):
             except:
                 page=0
                 showing=splitted[0]
-                print("you have no more friends :(")
+                
         return showing
 
 
@@ -133,7 +133,7 @@ class UI():
         
        
     def show_battle_request(self,data):
-        print("battle")
+         pass
   
 
     def start_duel(self):
@@ -212,7 +212,7 @@ class UI():
         self.draw.add_widget(MenuLabel(self.comm,"local"))
         self.draw.add_widget(MenuLabel(self.comm,"multiplayer"))
         self.draw.add_widget(MenuLabel(self.comm,"stats"))
-        self.draw.add_widget(MenuLabel(self.comm,"food"))
+      #  self.draw.add_widget(MenuLabel(self.comm,"food"))
         self.draw.add_widget(MenuLabel(self.comm,"Math Game"))
     def load_multiplayer(self,instance=None):
         self.draw.clear_widgets()
@@ -339,10 +339,7 @@ class UI():
                 for player in self.comm.players:
                     for art in player.artifacts:
                         self.draw.add_widget(art)
-                        #lbl=Label(text ="Owner: "+player.name.text)
-                        #move(lbl,art.pos[0],Window.size[1]-art.pos[1]-CARD_SIZE[0]-64)
-                        #self.art_labels.append(lbl)
-                        #self.draw.add_widget(lbl)
+                
                 
             except WidgetException:
                 pass
@@ -352,9 +349,7 @@ class UI():
         for player in self.comm.players:
                     for art in player.artifacts:
                         self.draw.remove_widget(art)
-        #for l in self.art_labels:
-        #    self.draw.remove_widget(l)
-        #self.art_labels=[]
+      
 
     def hide_players_artifacts(self,instance):
        
@@ -371,7 +366,7 @@ class UI():
             for player in self.comm.players:
             
                 for w in player.exp.widgets:
-                    print(w.type)
+                    
                     if w.type in card.targets or w.text in card.targets:
                         w.color=(0,1,0,1)
 
@@ -486,8 +481,8 @@ class MenuLabel(Label):
 
 
 
-class WtF(Layout):  # хрен знает что случилось но киви меняет точку отсчета на центр екрана при использовании FloatLayout и его производных таких как RelativeLayout
-    def __init__(self, **kwargs):# поэтому использую стандартный Layout
+class WtF(Layout): 
+    def __init__(self, **kwargs):
          super().__init__(**kwargs)
     def do_layout(self, *largs):
         pass
@@ -517,7 +512,7 @@ class MathApp(App):
          self.fill("NumberCard","rand='plus'",6)
          self.fill("NumberCard","rand='minus'",6)
          self.fill("EventCard","name='reverse 3'",1)
-         self.fill("EventCard","name='boost'",1)
+         #self.fill("EventCard","name='boost'",1)
          self.fill("Sorcery","name='+to-'",2)
          self.fill("Sorcery","name='+to-'",2)
          self.fill("Brackets",'',8)
@@ -608,7 +603,7 @@ class MathApp(App):
          self.player_turn=self.current_turn%len(self.players)
          self.current_player=self.players[self.player_turn]
          self.current_player.take_card()
-         print(str(len(self.current_player.hand))+" "+self.current_player.name.text)
+      
          self.UI.show_turn()
             
 
@@ -624,7 +619,7 @@ class MathApp(App):
           
        
          self.time.time=0
-  
+         print("Cards left: "+str(len(self.deck)))
     def end_game(self):
         l=False
         choosen=None

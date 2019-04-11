@@ -5,7 +5,7 @@ from kivy.core.window import Window
 from kivy.clock import Clock
 
 class Player():
-    def __init__(self, name="local",main=None,data=None):
+    def __init__(self, name="Player 2",main=None,data=None):
         self.comm=main
        
         self.name=NickName(self,name)
@@ -26,7 +26,7 @@ class Player():
     def get_localname(self):
         self.comm.main.add_widget()
     def calculate_card_pos(self):
-        print(self.name.text)
+        
        
         if self.number==1:
       
@@ -93,7 +93,7 @@ class Score(Label):
          x= self.player.comm.X
          y= self.player.comm.Y
          z= self.player.comm.Z
-         print(self.player.delta)
+    
          try:
            self.score=self.player.delta+eval(self.player.expression_clear)
            self.status='ok'

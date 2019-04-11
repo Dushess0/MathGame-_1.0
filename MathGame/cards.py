@@ -200,17 +200,17 @@ class Brackets(Card):
                  del self.charges[0]
                 
                  if self.charges==[]: 
-                     print('ending')
+                     
                      i=0
                      once=False
                      
                      for player in self.main.players:
                          if player.score.status=="error":
                              player.exp.set=player.exp.reserve
-                             print(player.exp.set)
+                             
                              
                              once=True
-                             print('error')
+                             
                              i+=1
                      if not once:
                          update_and_delete(self,self.main) 
@@ -295,7 +295,7 @@ class Sorcery(Card):
              self.add = random.choice([3,6,9])
              self.img = SORCERY_IMG+ self.name+str(self.add) +".jpg"
          self.succes=True
-         print(self.targets)
+         
         
     def equal(self,w,exp):
         
@@ -309,7 +309,7 @@ class Sorcery(Card):
             part="self.main."+w.text.capitalize()
             exec(part+"="+"self.main."+add.capitalize())
             
-            print('completed')
+            
             self.main.buffer=None
             self.player.hand.remove(self)
             update_and_delete(self,self.main)           
@@ -325,13 +325,13 @@ class Sorcery(Card):
             part="self.main."+w.text.capitalize()
             exec("self.main."+add.capitalize()+","+part+"="+part+","+"self.main."+add.capitalize())
             
-            print('completed')
+           
             self.main.buffer=None
             self.player.hand.remove(self)
             update_and_delete(self,self.main)      
             
     def action(self,expression,widget,mode):
-        print('hoba')
+       
         index=expression.widgets.index(widget)
         if self.name=="+to-":
            
@@ -415,7 +415,7 @@ class Artifact(Card):
             
             Clock.schedule_once(self.deleting,8)
             self.player=player
-            print(str(self.player.name.text))
+            
 
 
 
@@ -472,7 +472,7 @@ class EventCard(Card):
          self.type="event"
          super().__init__(self.type,main,**kwargs)
          
-         self.events=["reverse 3","destroy all brackets","boost"]
+         self.events=["reverse 3","destroy all brackets"]#,"boost"]
          if name=='':
            self.name = random.choice(self.events)
          else:
@@ -482,8 +482,8 @@ class EventCard(Card):
              self.img +="reverse_3.jpg"
          elif self.name=="destroy all brackets":
              self.img+="brackets_destroy.jpg"
-         elif self.name=="boost":
-             self.img+="boost.jpg"
+         #elif self.name=="boost":
+         #    self.img+="boost.jpg"
     def reverse_3(self):
         
         
@@ -526,9 +526,9 @@ class EventCard(Card):
                      player.exp.set.remove(symbol)
             player.exp.update()
 
-    def boost(self):
-        self.main.time.turn_time=15
-        play_sound(SOUND_FOLDER+"boost.wav")
+    #def boost(self):
+    #    self.main.time.turn_time=15
+    #    play_sound(SOUND_FOLDER+"boost.wav")
        
 
     def appear(self,player=None):
