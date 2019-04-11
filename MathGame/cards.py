@@ -96,7 +96,7 @@ class Card(Image):
             self.player=player     
     def disenchant(self):
         update_and_delete(self,self.main)
-       # play_sound("data\\sound\\disenchant.wav")
+      
     def action(self,expression,widget,mode):
           
           index =expression.widgets.index(widget)
@@ -391,7 +391,7 @@ class Artifact(Card):
             self.flip()
             if self.name=="equal":
                
-                play_sound(SOUND_FOLDER+"equal.wav")
+               pass
                
             delta_x=770-self.pos[0]
             delta_y=240-self.pos[1]
@@ -437,14 +437,14 @@ class Artifact(Card):
                      self.player.delta+=1
                     
                     
-         elif self.name=="equal":       #back to ussr
+         elif self.name=="equal":      
              avg=0
              for player in self.main.players:
                  avg += player.score.score/len(self.main.players)
              for player in self.main.players:
-                 if player.score.score>avg:     #значит буржуй
+                 if player.score.score>avg:    
                      player.delta-=1
-                 elif player.score.score<avg: # честный пролетариат
+                 elif player.score.score<avg: 
                      player.delta+=1
 
 
@@ -482,8 +482,7 @@ class EventCard(Card):
              self.img +="reverse_3.jpg"
          elif self.name=="destroy all brackets":
              self.img+="brackets_destroy.jpg"
-         #elif self.name=="boost":
-         #    self.img+="boost.jpg"
+      
     def reverse_3(self):
         
         
@@ -526,9 +525,7 @@ class EventCard(Card):
                      player.exp.set.remove(symbol)
             player.exp.update()
 
-    #def boost(self):
-    #    self.main.time.turn_time=15
-    #    play_sound(SOUND_FOLDER+"boost.wav")
+
        
 
     def appear(self,player=None):
@@ -561,8 +558,7 @@ class EventCard(Card):
             self.reverse_3()
         elif self.name=="destroy all brackets":
             self.brackets_destroy()
-        elif self.name=="boost":
-            self.boost()
+     
 
 
        
