@@ -17,5 +17,10 @@ Requirements:
 1)Python 3.6 or above
 2)Kivy (https://kivy.org/doc/stable/installation/installation-windows.html)
 
+Screenshots:
+![Screenshot1](screenshot1.png)
+![Screenshot2](screenshot2.png)
+
+
 If you have any questions or propositions please write me via Telegram (@Dushess0).
 Thank you!
