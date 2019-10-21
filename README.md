@@ -13,5 +13,9 @@ choosing in which side to insert.
 Example: your expression is +5-x+y+z you want to use card +10 to increase your score you want your 
 expression look like this +5-x+10+y+z, so you must click with right mouse button at  X, or with left mouse button at Y.
 
+Requirements:
+1)Python 3.6 or above
+2)Kivy (https://kivy.org/doc/stable/installation/installation-windows.html)
+
 If you have any questions or propositions please write me via Telegram (@Dushess0).
 Thank you!
